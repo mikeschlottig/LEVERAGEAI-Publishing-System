@@ -1,0 +1,983 @@
+# Cloudflare Vector Deployment
+
+# Vector Database Strategy: Cloudflare Vectorize + Pinecone Optimization Plan
+
+**Keywords: directory-ecosystem, vector-search, semantic-matching, business-discovery, i5-corridor, cloudflare-vectorize, pinecone-optimization**
+
+## Executive Summary
+
+This plan outlines how to leverage both Cloudflare Vectorize and Pinecone to create an intelligent, scalable vector search infrastructure for our I-5 corridor directory ecosystem. With 96 directory websites targeting 5,000+ businesses, we need a robust system that can handle semantic business search, intelligent categorization, and user matching at scale.
+
+## Platform Capabilities Analysis
+
+### Cloudflare Vectorize Strengths
+
+- **Massive Free Allocation**: 30M queried + 100M stored vector dimensions monthly
+- **Global Edge Distribution**: Low latency across all geographic regions
+- **Seamless Integration**: Native Workers AI embedding generation
+- **Enterprise Scale**: Up to 5M vectors per index, 50K indexes per account
+- **Cost Efficiency**: Only $0.01/million queried, $0.05/100M stored dimensions
+- **Zero Egress Fees**: No data transfer charges
+- **Real-time Processing**: Sub-100ms query times globally
+
+### Pinecone Advantages
+
+- **2GB Storage Capacity**: Significant vector storage for specialized use cases
+- **Advanced Features**: Metadata filtering, namespacing, hybrid search
+- **Mature Ecosystem**: Extensive integrations and tooling
+- **Specialized Algorithms**: Optimized for similarity search
+
+## Strategic Architecture: Hybrid Vector Graph System
+
+### Primary Layer: Cloudflare Vectorize
+
+**Use Case**: Main semantic search engine for all directory operations
+
+**Implementation**:
+
+- **Business Discovery Engine**: Core business search across all 96 directories
+- **Real-time User Queries**: Instant semantic matching for customer searches
+- **Category Intelligence**: Auto-categorization of new business listings
+- **Cross-Directory Recommendations**: "Similar businesses in nearby cities"
+
+**Index Structure**:
+
+```
+Business Core Index (768 dimensions)
+├── Business Descriptions (OpenAI ada-002)
+├── Service Offerings (Workers AI embeddings)
+├── Location Context (Geographic + demographic)
+└── Customer Reviews Sentiment (Aggregated)
+
+Directory Categories Index (384 dimensions)
+├── Industry Classifications
+├── Service Types
+├── Business Models
+└── Target Demographics
+
+User Intent Index (512 dimensions)
+├── Search Patterns
+├── Behavioral Preferences  
+├── Geographic Preferences
+└── Seasonal Trends
+```
+
+### Secondary Layer: Pinecone Specialized Systems
+
+**Use Case**: Advanced analytics and specialized search operations
+
+**Implementation**:
+
+- **Business Intelligence**: Complex multi-dimensional analysis
+- **Trend Analysis**: Historical pattern recognition
+- **Competitive Intelligence**: Market positioning analysis
+- **Customer Journey Mapping**: Advanced user behavior modeling
+
+## Technical Implementation Roadmap
+
+### Phase 1: Cloudflare Vectorize Foundation (Weeks 1-2)
+
+1. **Index Architecture Setup**
+   - Create primary business index (768 dimensions)
+   - Implement Workers AI embedding pipeline
+   - Configure metadata schemas for filtering
+2. **Data Pipeline Development**
+   - Automated business profile vectorization
+   - Real-time embedding generation for new listings
+   - Batch processing for existing 5,000 businesses
+3. **Search Interface Integration**
+   - Semantic search API endpoints
+   - Category-based filtering
+   - Geographic proximity weighting
+
+### Phase 2: Advanced Features (Weeks 3-4)
+
+1. **Multi-Modal Search**
+   - Image embedding for business photos
+   - Combined text + image similarity search
+   - Visual business discovery features
+2. **Intelligent Categorization**
+   - Auto-classification of new businesses
+   - Similarity-based category suggestions
+   - Cross-industry connection detection
+3. **Performance Optimization**
+   - Edge caching strategies
+   - Query optimization patterns
+   - Latency monitoring and alerting
+
+### Phase 3: Pinecone Integration (Weeks 5-6)
+
+1. **Analytics Engine**
+   - Historical trend analysis vectors
+   - Competitive landscape mapping
+   - Market opportunity identification
+2. **Advanced Recommendations**
+   - Complex multi-factor business matching
+   - Seasonal demand prediction
+   - Customer behavior pattern analysis
+
+## Cost Optimization Strategy
+
+### Cloudflare Vectorize Utilization
+
+**Monthly Allocation**: 30M queried + 100M stored dimensions
+
+**Projected Usage**:
+
+- **5,000 businesses × 768 dimensions = 3.84M stored** ✅ Well within limits
+- **Estimated 50K searches/month × average 1K results = 38.4M queried** ✅ Within free tier
+- **96 directories × average vectors = Massive headroom for growth**
+
+**Cost Efficiency**:
+
+- First ~130M operations monthly: **$0** (included in $5 Workers plan)
+- Growth beyond free tier: Incredibly cost-effective scaling
+
+### Pinecone Resource Allocation
+
+**2GB Strategic Usage**:
+
+- High-value, complex analytics vectors
+- Historical trend data (longer retention)
+- Specialized multi-dimensional business analysis
+- Backup/redundancy for critical search operations
+
+## Vector Graph Applications for Directory Ecosystem
+
+### 1. Semantic Business Discovery
+
+- **Natural Language Search**: "Find eco-friendly restaurants near downtown Portland"
+- **Intent Understanding**: Convert user queries to business attribute vectors
+- **Contextual Results**: Weather, time, local events influence ranking
+
+### 2. Intelligent Business Matching
+
+- **Similar Business Detection**: Automated competitor analysis
+- **Cross-Category Connections**: Discover business partnership opportunities
+- **Market Gap Identification**: Find underserved niches via vector clustering
+
+### 3. Dynamic Content Generation
+
+- **Auto-Generated Descriptions**: Create compelling business profiles from vectors
+- **SEO Content Creation**: Vector-driven content for each directory page
+- **Personalized Recommendations**: Custom business suggestions per user
+
+### 4. Predictive Analytics
+
+- **Seasonal Demand Forecasting**: Vector analysis of historical patterns
+- **Market Trend Prediction**: Early identification of emerging business types
+- **Customer Behavior Modeling**: Predict user preferences and search patterns
+
+## Implementation Timeline & Milestones
+
+### Week 1-2: Foundation
+
+- [ ] Set up Cloudflare Workers with Vectorize bindings
+- [ ] Design and create primary business index
+- [ ] Implement embedding generation pipeline
+- [ ] Migrate first 1,000 businesses to vector format
+
+### Week 3-4: Scale & Optimize
+
+- [ ] Complete all 5,000 business vectorization
+- [ ] Implement advanced search features
+- [ ] Deploy across first 10 directory sites
+- [ ] Performance testing and optimization
+
+### Week 5-6: Advanced Features
+
+- [ ] Integrate Pinecone for analytics
+- [ ] Implement recommendation engines
+- [ ] Deploy intelligent categorization
+- [ ] Launch cross-directory search capabilities
+
+### Week 7-8: Full Deployment
+
+- [ ] Roll out to all 96 directories
+- [ ] Implement automated content generation
+- [ ] Launch predictive analytics dashboard
+- [ ] Begin AI agent integration for automation
+
+## Success Metrics & KPIs
+
+### Technical Performance
+
+- **Query Latency**: <100ms for semantic search globally
+- **Search Accuracy**: >85% relevance for natural language queries
+- **Index Growth**: Support for 10K+ businesses without performance degradation
+- **Uptime**: 99.9% availability across all directories
+
+### Business Impact
+
+- **User Engagement**: 40%+ increase in time on directory sites
+- **Conversion Rate**: 25%+ improvement in business contact rates
+- **SEO Performance**: Top 3 rankings for local business searches
+- **Client Satisfaction**: >90% positive feedback on search relevance
+
+## Risk Mitigation & Contingency
+
+### Technical Risks
+
+- **Vector Dimension Limits**: Hybrid approach allows optimization between platforms
+- **Query Volume Spikes**: Cloudflare's global distribution handles traffic surges
+- **Data Loss Protection**: Automated backups across both platforms
+
+### Business Continuity
+
+- **Platform Redundancy**: Critical vectors stored in both systems
+- **Gradual Migration**: Phased rollout minimizes disruption
+- **Fallback Options**: Traditional search maintains service during upgrades
+
+## Next Steps: Immediate Actions
+
+1. **Set up Cloudflare Workers environment** with Vectorize bindings
+2. **Design vector schema** for business data structure
+3. **Implement embedding pipeline** using Workers AI
+4. **Begin vectorization** of first 500 businesses for testing
+5. **Create proof-of-concept** semantic search interface
+
+This hybrid approach positions us to completely dominate the Oregon directory market through intelligent, scalable vector search that gets smarter with every interaction. The combination of Cloudflare's global edge network and Pinecone's specialized capabilities gives us both performance and advanced analytics - exactly what we need to execute our ambitious timeline!
+
+**Ready to revolutionize local business discovery? Let's build the future of intelligent directories! 🚀**
+
+# Strategic Vector Database Information Architecture
+
+## LeverageAI Ecosystem Knowledge Graph Design
+
+**Keywords: leverage-ai-ecosystem, vector-architecture, knowledge-graphs, ai-agents, business-intelligence, contextual-understanding**
+
+## Executive Vision Overview
+
+This architecture supports the entire LeverageAI ecosystem - from directory operations to autonomous agent workflows, ensuring each vector database serves specific, focused objectives without information pollution.
+
+## Vector Database Allocation Strategy
+
+### 🎯 **PRIMARY DATABASES - Core Business Operations**
+
+#### 1. **Cloudflare Vectorize: Real-Time Operations Hub**
+
+**Purpose**: Lightning-fast, customer-facing operations
+
+- Directory semantic search
+- Live user interactions
+- Real-time business matching
+- Instant content generation
+
+#### 2. **Pinecone: Strategic Intelligence Center**
+
+**Purpose**: Deep analytics and agent coordination
+
+- AI agent knowledge base
+- Cross-project pattern recognition
+- Strategic business intelligence
+- Agent-to-agent communication protocols
+
+#### 3. **Supabase Vectors: Structured Business Data**
+
+**Purpose**: Relational + vector hybrid operations
+
+- CRM customer data with semantic search
+- Project management with AI insights
+- User behavior tracking and prediction
+- Integration layer for all platforms
+
+---
+
+## 🗂️ **INFORMATION ARCHITECTURE BY OBJECTIVE**
+
+### **OBJECTIVE 1: Directory Ecosystem Dominance**
+
+#### **Cloudflare Vectorize - "Discovery Engine"**
+
+```
+Business_Core_Index (768 dimensions)
+├── Business_Profiles/
+│   ├── [business_id]_description_embedding
+│   ├── [business_id]_services_embedding  
+│   ├── [business_id]_location_context
+│   └── [business_id]_customer_sentiment
+├── Geographic_Intelligence/
+│   ├── [city]_demographic_vectors
+│   ├── [city]_economic_indicators
+│   └── [city]_competitive_landscape
+└── Search_Intent_Patterns/
+    ├── seasonal_trends_vectors
+    ├── user_behavior_clusters
+    └── conversion_pattern_analysis
+```
+
+**Metadata Structure**:
+
+- `business_id`, `city`, `category`, `last_updated`
+- `conversion_score`, `relevance_weight`, `seasonal_factor`
+
+#### **Pinecone - "Strategic Analytics"**
+
+```
+Market_Intelligence (1024 dimensions)
+├── Competitive_Analysis/
+│   ├── market_positioning_vectors
+│   ├── pricing_strategy_analysis
+│   └── opportunity_gap_identification
+├── Growth_Patterns/
+│   ├── business_lifecycle_vectors
+│   ├── market_expansion_indicators
+│   └── success_prediction_models
+└── Cross_Directory_Insights/
+    ├── regional_business_networks
+    ├── partnership_opportunity_vectors
+    └── market_trend_predictions
+```
+
+---
+
+### **OBJECTIVE 2: AI Agent Ecosystem Intelligence**
+
+#### **Pinecone - "Agent Knowledge Base"**
+
+```
+Agent_Intelligence (1536 dimensions)
+├── Workflow_Knowledge/
+│   ├── [task_type]_execution_patterns
+│   ├── [tool]_optimization_vectors
+│   └── error_pattern_solutions
+├── Learning_Repository/
+│   ├── successful_automation_vectors
+│   ├── human_feedback_embeddings
+│   └── performance_improvement_patterns
+└── Context_Understanding/
+    ├── project_relationship_maps
+    ├── client_preference_vectors
+    └── business_process_models
+```
+
+#### **Supabase Vectors - "Agent Coordination"**
+
+```
+Agent_Operations (512 dimensions)
+├── Task_Assignment/
+│   ├── agent_capability_vectors
+│   ├── workload_distribution_patterns
+│   └── priority_scoring_models
+├── Communication_Protocols/
+│   ├── inter_agent_message_vectors
+│   ├── human_loop_trigger_patterns
+│   └── escalation_decision_trees
+└── Performance_Tracking/
+    ├── agent_efficiency_vectors
+    ├── quality_assessment_patterns
+    └── continuous_improvement_models
+```
+
+---
+
+### **OBJECTIVE 3: Customer Intelligence & CRM**
+
+#### **Supabase Vectors - "Customer Intelligence"**
+
+```
+Customer_Ecosystem (768 dimensions)
+├── Customer_Profiles/
+│   ├── [customer_id]_behavior_vector
+│   ├── [customer_id]_preference_model
+│   └── [customer_id]_lifecycle_stage
+├── Interaction_Patterns/
+│   ├── communication_style_vectors
+│   ├── purchase_decision_models
+│   └── service_satisfaction_patterns
+└── Predictive_Models/
+    ├── churn_prediction_vectors
+    ├── upsell_opportunity_models
+    └── lifetime_value_estimators
+```
+
+---
+
+### **OBJECTIVE 4: Content & Media Intelligence**
+
+#### **Cloudflare Vectorize - "Content Engine"**
+
+```
+Content_Intelligence (384 dimensions)
+├── Content_Creation/
+│   ├── topic_trend_vectors
+│   ├── audience_engagement_patterns
+│   └── viral_content_characteristics
+├── SEO_Optimization/
+│   ├── keyword_semantic_clusters
+│   ├── content_gap_analysis
+│   └── competitor_content_vectors
+└── Media_Assets/
+    ├── image_concept_embeddings
+    ├── video_content_summaries
+    └── brand_consistency_vectors
+```
+
+---
+
+## 🎨 **VECTOR VISUALIZATION STRATEGY**
+
+### **Data Flow Architecture**
+
+```
+Raw Data Sources → Embedding Pipeline → Vector Storage → AI Agent Access
+
+├── Business Data (Directory)
+│   └── OpenAI ada-002 → Cloudflare Vectorize
+├── Process Knowledge (Workflows)  
+│   └── Workers AI → Pinecone
+├── Customer Interactions (CRM)
+│   └── Sentence Transformers → Supabase
+└── Content Assets (Media)
+    └── CLIP/Vision → Cloudflare Vectorize
+```
+
+### **Access Patterns by System**
+
+- **Real-time User Queries**: Cloudflare Vectorize (sub-100ms)
+- **Agent Decision Making**: Pinecone (contextual depth)
+- **Customer Analytics**: Supabase (relational + vector)
+- **Content Generation**: Multi-platform synthesis
+
+---
+
+## 🛠️ **IMPLEMENTATION PRIORITIES**
+
+### **Phase 1: Foundation (Weeks 1-2)**
+
+1. **Directory Vector Architecture**
+   - Set up Cloudflare Vectorize for business search
+   - Implement embedding pipeline for 5,000 businesses
+   - Configure geographic and category indices
+2. **Agent Knowledge Base**
+   - Initialize Pinecone with workflow patterns
+   - Create agent communication protocols
+   - Establish learning feedback loops
+
+### **Phase 2: Intelligence Layer (Weeks 3-4)**
+
+1. **Customer Intelligence**
+   - Implement Supabase vector extensions
+   - Create customer behavior models
+   - Build predictive analytics pipeline
+2. **Content Intelligence**
+   - Add media asset vectorization
+   - Implement SEO content optimization
+   - Create automated content generation
+
+### **Phase 3: Advanced Operations (Weeks 5-6)**
+
+1. **Cross-Platform Integration**
+   - Connect all vector databases
+   - Implement intelligent routing
+   - Create unified query interface
+2. **Agent Autonomy**
+   - Deploy self-improving agents
+   - Implement multi-agent coordination
+   - Create human-in-the-loop systems
+
+---
+
+## 📊 **QUALITY CONTROL & OPTIMIZATION**
+
+### **Information Clarity Principles**
+
+- **Single Source of Truth**: Each vector serves one primary objective
+- **Contextual Relevance**: Metadata ensures proper routing
+- **Continuous Refinement**: Feedback loops improve embeddings
+- **Performance Monitoring**: Track query accuracy and speed
+
+### **Data Pollution Prevention**
+
+- **Structured Namespacing**: Clear separation by function
+- **Semantic Validation**: Ensure embedding quality
+- **Regular Cleanup**: Remove outdated/irrelevant vectors
+- **Access Controls**: Agent-specific database permissions
+
+---
+
+## 🚀 **STRATEGIC ADVANTAGES**
+
+### **Competitive Edge**
+
+- **Local Market Dominance**: Unmatched directory intelligence
+- **Agent Efficiency**: Context-aware automation
+- **Customer Insights**: Predictive relationship management
+- **Content Velocity**: AI-powered content at scale
+
+### **Scalability Framework**
+
+- **Modular Architecture**: Add new objectives without disruption
+- **Platform Agnostic**: Multiple vector database options
+- **Cost Optimization**: Right-sized storage for each use case
+- **Global Distribution**: Edge-based performance
+
+---
+
+## 🎯 **SUCCESS METRICS**
+
+### **Technical KPIs**
+
+- Query Response Time: <100ms for customer-facing
+- Embedding Quality: >90% semantic accuracy
+- System Uptime: 99.9% across all platforms
+- Storage Efficiency: Optimal cost per operation
+
+### **Business Impact**
+
+- Directory Search Accuracy: >95% user satisfaction
+- Agent Task Success Rate: >90% autonomous completion
+- Customer Retention: 25%+ improvement with AI insights
+- Content Performance: 40%+ engagement improvement
+
+---
+
+## 🔄 **CONTINUOUS EVOLUTION**
+
+This architecture grows with your ecosystem:
+
+- **New Projects**: Add dedicated vector spaces
+- **Enhanced AI**: Upgrade embedding models seamlessly
+- **Market Expansion**: Scale geographic coverage
+- **Innovation**: Integrate cutting-edge vector technologies
+
+**Ready to build the most intelligent business ecosystem on the planet? Let's architect the future! 🚀**
+
+// Cloudflare Worker - Oregon Business Directory with Vectorize
+// File: src/index.js
+
+export default {
+  async fetch(request, env, ctx) {
+    const url = new URL(request.url);
+    const path = url.pathname;
+
+    // Handle different routes
+    if (path.startsWith('/api/search')) {
+      return handleSearch(request, env);
+    } else if (path.startsWith('/api/business')) {
+      return handleBusiness(request, env);
+    } else if (path.startsWith('/api/admin')) {
+      return handleAdmin(request, env);
+    }
+    
+    // Serve the directory website
+    return handleWebsite(request, env);
+
+  }
+};
+
+// Business Search with Semantic Vector Matching
+async function handleSearch(request, env) {
+  try {
+    const url = new URL(request.url);
+    const query = url.searchParams.get('q');
+    const city = url.searchParams.get('city');
+    const category = url.searchParams.get('category');
+    const limit = parseInt(url.searchParams.get('limit')) || 10;
+
+    if (!query) {
+      return new Response(JSON.stringify({ error: 'Query required' }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' }
+      });
+    }
+    
+    // Generate embedding for search query using Workers AI
+    const embedding = await generateEmbedding(query, env);
+    
+    // Build filter for city/category
+    const filter = buildSearchFilter(city, category);
+    
+    // Search Vectorize index
+    const results = await env.DIRECTORY_INDEX.query(embedding, {
+      topK: limit,
+      returnValues: false,
+      returnMetadata: 'all',
+      filter: filter
+    });
+    
+    // Format results for frontend
+    const businesses = results.matches.map(match => ({
+      id: match.id,
+      score: match.score,
+      name: match.metadata.business_name,
+      city: match.metadata.city,
+      category: match.metadata.category,
+      phone: match.metadata.phone,
+      address: match.metadata.address,
+      description: match.metadata.description,
+      services: JSON.parse(match.metadata.services || '[]'),
+      website: match.metadata.website,
+      rating: match.metadata.rating,
+      last_updated: match.metadata.last_updated
+    }));
+    
+    return new Response(JSON.stringify({
+      query: query,
+      total: results.matches.length,
+      businesses: businesses
+    }), {
+      headers: { 
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      }
+    });
+
+  } catch (error) {
+    console.error('Search error:', error);
+    return new Response(JSON.stringify({ error: 'Search failed' }), {
+      status: 500,
+      headers: { 'Content-Type': 'application/json' }
+    });
+  }
+}
+
+// Add/Update Business in Vector Database
+async function handleBusiness(request, env) {
+  if (request.method !== 'POST') {
+    return new Response('Method not allowed', { status: 405 });
+  }
+
+  try {
+    const business = await request.json();
+
+    // Validate required fields
+    if (!business.name || !business.city || !business.category) {
+      return new Response(JSON.stringify({ 
+        error: 'Missing required fields: name, city, category' 
+      }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' }
+      });
+    }
+    
+    // Generate business description for embedding
+    const description = generateBusinessDescription(business);
+    const embedding = await generateEmbedding(description, env);
+    
+    // Create vector ID
+    const vectorId = `business-${business.city}-${business.category}-${business.id || Date.now()}`;
+    
+    // Prepare metadata
+    const metadata = {
+      business_name: business.name,
+      city: business.city.toLowerCase(),
+      category: business.category.toLowerCase(),
+      phone: business.phone || '',
+      address: business.address || '',
+      description: business.description || '',
+      services: JSON.stringify(business.services || []),
+      website: business.website || '',
+      rating: business.rating || 0,
+      last_updated: new Date().toISOString(),
+      conversion_score: business.conversion_score || 0.5,
+      seo_ranking: business.seo_ranking || 0
+    };
+    
+    // Upsert to Vectorize
+    await env.DIRECTORY_INDEX.upsert([{
+      id: vectorId,
+      values: embedding,
+      metadata: metadata
+    }]);
+    
+    return new Response(JSON.stringify({
+      success: true,
+      id: vectorId,
+      message: 'Business added successfully'
+    }), {
+      headers: { 'Content-Type': 'application/json' }
+    });
+
+  } catch (error) {
+    console.error('Business add error:', error);
+    return new Response(JSON.stringify({ error: 'Failed to add business' }), {
+      status: 500,
+      headers: { 'Content-Type': 'application/json' }
+    });
+  }
+}
+
+// Admin functions for bulk operations
+async function handleAdmin(request, env) {
+  const url = new URL(request.url);
+  const action = url.searchParams.get('action');
+
+  switch (action) {
+    case 'bulk_import':
+      return handleBulkImport(request, env);
+    case 'stats':
+      return getIndexStats(env);
+    case 'categories':
+      return getCategories(env);
+    default:
+      return new Response('Invalid admin action', { status: 400 });
+  }
+}
+
+// Generate embedding using Workers AI
+async function generateEmbedding(text, env) {
+  const response = await env.AI.run('@cf/baai/bge-small-en-v1.5', {
+    text: [text]
+  });
+
+  // Ensure 768 dimensions for compatibility
+  const embedding = response.data[0];
+  if (embedding.length !== 768) {
+    throw new Error(`Expected 768 dimensions, got ${embedding.length}`);
+  }
+
+  return embedding;
+}
+
+// Build search filter based on city/category
+function buildSearchFilter(city, category) {
+  const filter = {};
+
+  if (city) {
+    filter.city = { $eq: city.toLowerCase() };
+  }
+
+  if (category) {
+    filter.category = { $eq: category.toLowerCase() };
+  }
+
+  return Object.keys(filter).length > 0 ? filter : null;
+}
+
+// Generate comprehensive business description for embedding
+function generateBusinessDescription(business) {
+  const parts = [
+    business.name,
+    business.category,
+    business.city,
+    business.description || '',
+    (business.services || []).join(' '),
+    business.address || ''
+  ];
+
+  return parts.filter(p => p.trim()).join(' ').trim();
+}
+
+// Bulk import for initial data migration
+async function handleBulkImport(request, env) {
+  try {
+    const { businesses } = await request.json();
+
+    if (!Array.isArray(businesses)) {
+      return new Response(JSON.stringify({ 
+        error: 'Expected array of businesses' 
+      }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' }
+      });
+    }
+    
+    const vectors = [];
+    const batchSize = 100; // Process in batches to avoid timeouts
+    
+    for (let i = 0; i < businesses.length; i += batchSize) {
+      const batch = businesses.slice(i, i + batchSize);
+    
+      for (const business of batch) {
+        try {
+          const description = generateBusinessDescription(business);
+          const embedding = await generateEmbedding(description, env);
+    
+          const vectorId = `business-${business.city}-${business.category}-${business.id || Date.now() + i}`;
+    
+          vectors.push({
+            id: vectorId,
+            values: embedding,
+            metadata: {
+              business_name: business.name,
+              city: business.city.toLowerCase(),
+              category: business.category.toLowerCase(),
+              phone: business.phone || '',
+              address: business.address || '',
+              description: business.description || '',
+              services: JSON.stringify(business.services || []),
+              website: business.website || '',
+              rating: business.rating || 0,
+              last_updated: new Date().toISOString(),
+              conversion_score: business.conversion_score || 0.5,
+              seo_ranking: business.seo_ranking || 0
+            }
+          });
+    
+        } catch (error) {
+          console.error(`Failed to process business ${business.name}:`, error);
+        }
+      }
+    
+      // Upsert batch to Vectorize
+      if (vectors.length > 0) {
+        await env.DIRECTORY_INDEX.upsert(vectors);
+        vectors.length = 0; // Clear for next batch
+      }
+    }
+    
+    return new Response(JSON.stringify({
+      success: true,
+      imported: businesses.length,
+      message: 'Bulk import completed'
+    }), {
+      headers: { 'Content-Type': 'application/json' }
+    });
+
+  } catch (error) {
+    console.error('Bulk import error:', error);
+    return new Response(JSON.stringify({ error: 'Bulk import failed' }), {
+      status: 500,
+      headers: { 'Content-Type': 'application/json' }
+    });
+  }
+}
+
+// Get index statistics
+async function getIndexStats(env) {
+  try {
+    const stats = await env.DIRECTORY_INDEX.describe();
+
+    return new Response(JSON.stringify({
+      totalVectors: stats.recordCount,
+      dimension: stats.dimension,
+      lastUpdate: new Date().toISOString()
+    }), {
+      headers: { 'Content-Type': 'application/json' }
+    });
+
+  } catch (error) {
+    return new Response(JSON.stringify({ error: 'Failed to get stats' }), {
+      status: 500,
+      headers: { 'Content-Type': 'application/json' }
+    });
+  }
+}
+
+// Get all business categories
+async function getCategories(env) {
+  try {
+    // This would need to be implemented based on your category taxonomy
+    const categories = [
+      'roofers', 'lawyers', 'landscaping', 'property-management',
+      'construction', 'handyman', 'real-estate', 'automotive'
+    ];
+
+    return new Response(JSON.stringify({ categories }), {
+      headers: { 'Content-Type': 'application/json' }
+    });
+
+  } catch (error) {
+    return new Response(JSON.stringify({ error: 'Failed to get categories' }), {
+      status: 500,
+      headers: { 'Content-Type': 'application/json' }
+    });
+  }
+}
+
+// Serve directory website based on subdomain
+async function handleWebsite(request, env) {
+  const url = new URL(request.url);
+  const subdomain = url.hostname.split('.')[0];
+
+  // Extract city from subdomain (e.g., grantspass.oregonsmbdirectory.com)
+  const city = subdomain === 'www' || subdomain === 'oregonsmbdirectory' ? null : subdomain;
+
+  // Serve appropriate HTML based on city/category
+  const html = generateDirectoryHTML(city, url.pathname);
+
+  return new Response(html, {
+    headers: { 'Content-Type': 'text/html' }
+  });
+}
+
+// Generate directory website HTML
+function generateDirectoryHTML(city, path) {
+  const category = path.split('/')[1]; // Extract category from path
+
+  return `<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>${city ? `${city.charAt(0).toUpperCase() + city.slice(1)} ` : ''}${category ? `${category.charAt(0).toUpperCase() + category.slice(1)} ` : ''}Oregon Business Directory</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; }
+        .search-box { margin: 20px 0; }
+        .search-box input { padding: 10px; width: 300px; margin-right: 10px; }
+        .search-box button { padding: 10px 20px; }
+        .results { margin-top: 20px; }
+        .business { border: 1px solid #ddd; padding: 15px; margin: 10px 0; }
+        .business h3 { margin: 0 0 10px 0; }
+        .business p { margin: 5px 0; }
+    </style>
+</head>
+<body>
+    <h1>${city ? `${city.charAt(0).toUpperCase() + city.slice(1)} ` : ''}${category ? `${category.charAt(0).toUpperCase() + category.slice(1)} ` : ''}Business Directory</h1>
+
+    <div class="search-box">
+        <input type="text" id="searchQuery" placeholder="Search businesses...">
+        <button onclick="searchBusinesses()">Search</button>
+    </div>
+    
+    <div id="results" class="results"></div>
+    
+    <script>
+        async function searchBusinesses() {
+            const query = document.getElementById('searchQuery').value;
+            if (!query) return;
+    
+            const params = new URLSearchParams({
+                q: query,
+                ${city ? `city: '${city}',` : ''}
+                ${category ? `category: '${category}',` : ''}
+                limit: 20
+            });
+    
+            try {
+                const response = await fetch('/api/search?' + params);
+                const data = await response.json();
+    
+                displayResults(data.businesses);
+            } catch (error) {
+                console.error('Search failed:', error);
+            }
+        }
+    
+        function displayResults(businesses) {
+            const resultsDiv = document.getElementById('results');
+    
+            if (businesses.length === 0) {
+                resultsDiv.innerHTML = '<p>No businesses found.</p>';
+                return;
+            }
+    
+            const html = businesses.map(business => \`
+                <div class="business">
+                    <h3>\${business.name}</h3>
+                    <p><strong>City:</strong> \${business.city}</p>
+                    <p><strong>Category:</strong> \${business.category}</p>
+                    <p><strong>Phone:</strong> \${business.phone}</p>
+                    <p><strong>Address:</strong> \${business.address}</p>
+                    <p>\${business.description}</p>
+                    \${business.website ? \`<p><a href="\${business.website}" target="_blank">Visit Website</a></p>\` : ''}
+                </div>
+            \`).join('');
+    
+            resultsDiv.innerHTML = html;
+        }
+    
+        // Auto-search if category is specified
+        ${category ? `
+        window.onload = function() {
+            document.getElementById('searchQuery').value = '${category}';
+            searchBusinesses();
+        };
+        ` : ''}
+    </script>
+
+</body>
+</html>`;
+}
