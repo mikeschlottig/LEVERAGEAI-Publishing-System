@@ -1,0 +1,85 @@
+# Cloudflare Wrangler TOML
+
+[Cloudflare Workers Configuration - wrangler.toml | Claude | Claude](https://claude.ai/public/artifacts/8fc0bf83-8d34-497d-8b79-fc13ed2a1173)
+
+# wrangler.toml - Cloudflare Workers Configuration
+
+# Oregon Business Directory with Vectorize
+
+name = "oregon-business-directory"
+compatibility_date = "2025-01-01"
+compatibility_flags = ["nodejs_compat"]
+
+# Main worker configuration
+
+[env.production]
+name = "oregon-business-directory"
+
+# Vectorize database binding
+
+[[env.production.vectorize]]
+binding = "DIRECTORY_INDEX"
+index_name = "oregon-business-directory"
+
+# Workers AI binding for embeddings
+
+[env.production.ai]
+binding = "AI"
+
+# KV storage for caching (optional)
+
+[[env.production.kv_namespaces]]
+binding = "CACHE"
+id = "your-kv-namespace-id"
+preview_id = "your-preview-kv-namespace-id"
+
+# Analytics Engine for tracking (optional)
+
+[[env.production.analytics_engine_datasets]]
+binding = "ANALYTICS"
+dataset = "oregon_directory_analytics"
+
+# Environment variables
+
+[env.production.vars]
+ENVIRONMENT = "production"
+LOG_LEVEL = "info"
+
+# Custom domain configuration
+
+[[env.production.routes]]
+pattern = "oregonsmbdirectory.com/*"
+zone_name = "oregonsmbdirectory.com"
+
+[[env.production.routes]]
+pattern = "*.oregonsmbdirectory.com/*"
+zone_name = "oregonsmbdirectory.com"
+
+# Development environment
+
+[env.development]
+name = "oregon-business-directory-dev"
+
+[[env.development.vectorize]]
+binding = "DIRECTORY_INDEX"
+index_name = "oregon-business-directory-dev"
+
+[env.development.ai]
+binding = "AI"
+
+[env.development.vars]
+ENVIRONMENT = "development"
+LOG_LEVEL = "debug"
+
+# Build configuration
+
+[build]
+command = "npm run build"
+cwd = "."
+
+# Deployment settings
+
+[miniflare]
+compatibility_date = "2025-01-01"
+compatibility_flags = ["nodejs_compat"]
+
